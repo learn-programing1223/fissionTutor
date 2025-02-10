@@ -1,0 +1,364 @@
+/* Modern CSS Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom Properties */
+:root {
+    --primary-color: #4f46e5;
+    --secondary-color: #818cf8;
+    --success-color: #22c55e;
+    --error-color: #ef4444;
+    --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--background-gradient);
+    padding: 1rem;
+}
+
+.auth-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    perspective: 1000px;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: transform var(--transition-speed);
+}
+
+.form-container.hidden {
+    display: none;
+}
+
+/* Animated Form Entry */
+@keyframes formEntry {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+.form-container:not(.hidden) {
+    animation: formEntry 0.6s ease-out;
+}
+
+/* Headings */
+h2 {
+    color: #1f2937;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Input Styling */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all var(--transition-speed);
+    background: white;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Password Toggle Button */
+.password-group {
+    position: relative;
+}
+
+.toggle-pw {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color var(--transition-speed);
+}
+
+.toggle-pw:hover {
+    color: var(--primary-color);
+}
+
+/* Primary Button */
+.main-btn {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.main-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+/* Social Login Section */
+.social-logins {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-logins p {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Divider lines for "Or continue with" text */
+.social-logins p::before,
+.social-logins p::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 80px);
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+.social-logins p::before {
+    left: 0;
+}
+
+.social-logins p::after {
+    right: 0;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Google Button Specific Styles */
+.social-btn.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.social-btn.google-btn img {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+}
+
+.social-btn.google-btn span {
+    color: #3c4043;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.social-btn.google-btn:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Other Social Buttons Container */
+.other-social-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+/* Other Social Buttons */
+.social-btn:not(.google-btn) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.social-btn:not(.google-btn):hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: var(--box-shadow);
+}
+
+.social-btn:not(.google-btn) img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Disabled state for unimplemented social buttons */
+.social-btn[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.social-btn[disabled]:hover {
+    background: white;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Auth Switch Link */
+.switch-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #6b7280;
+}
+
+.switch-auth a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+.switch-auth a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
+}
+
+.loading-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modern Spinner */
+/* Modern Spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(79, 70, 229, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* Error Messages */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.error-message.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+/* Success Messages */
+.success-message {
+    color: var(--success-color);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.success-message.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-buttons {
+        gap: 0.5rem;
+    }
+
+    .social-btn.google-btn {
+        padding: 0.75rem 1rem;
+    }
+}

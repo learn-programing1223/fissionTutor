@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Your App</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+    <link rel="stylesheet" href="home-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="scheduling.js" type="module"></script>
+    <script src="auth.js" type="module"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="./assets/images/fissionLogo.png" alt="Fission Tutoring Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#schedule">Scheduling</a></li>
+                <li><a href="#social">Social Media</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Expert Tutoring for Every Student</h1>
+            <p>Join thousands of students achieving their academic goals</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="./assets/images/tutorGirl.png" alt="Qualified Tutors">
+                <h3>Qualified Tutors</h3>
+                <p>Learn from experienced tutors who excel in their subjects</p>
+            </div>
+            <div class="feature-card">
+                <img src="./assets/images/flexibleSchedule.jpg" alt="Flexible Schedule">
+                <h3>Flexible Schedule</h3>
+                <p>Easy to schedule sessions that works for all types of students</p>
+            </div>
+            <div class="feature-card">
+                <img src="./assets/images/provenresults.png" alt="Proven Results">
+                <h3>Proven Results</h3>
+                <p>See improvement in your grades and understanding</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Sections -->
+    <main>
+        <!-- About Us Section -->
+        <section id="about" class="content-section">
+            <h2>About Us</h2>
+            <div class="section-content team-grid">
+                <div class="team-member">
+                    <img src="./assets/images/aahaan.jpg" alt="Aahaan Rathi">
+                    <h3>President: Aahaan Rathi</h3>
+                    <p>Aahaan is a junior at Livingston High School, and has excelled at school and out of the classroom. He has taken AP Physics 1, and got a 5 on the AP Exam, and is now taking AP Physics C: Mechanics. He has also tutored for SAT Math, leading the Tutee to have an 100 point increase in their Math Score. Aahaan plans to continue his love for physics by taking AP Physics C: Electricity and Magnetism next year, and he also plans to major in Physics in college.
+                    </p>
+                </div>
+                <div class="team-member">
+                    <img src="./assets/images/aayan.jpg" alt="Aayan Shah">
+                    <h3>Vice President: Aayan Shah</h3>
+                    <p>Exceling in Math and Science, Aayan Shah is well versed in Physics and Math. 
+                    Obtaining a remarkable 5 on the AP Physics 1 exam and having A's in Physics C Mech, Physics 2, and Physics 1, Aayan 
+                    will fit your needs in the realm of Physics. Moreover, Aayan excels in programming. He achieved Gold in the United
+                    States of America Computing Olympiad (USACO) and has a strong interest in Computer Science. He also coded this website.
+                    Overall, Aayan is a great asset to the club. His ability to teaching in a simplictic and engaging manner will help you
+                    excel in Math and Science, allowing you to reach your full potential.</p>
+                </div>
+                <div class="team-member">
+                    <img src="./assets/images/mayank.jpg" alt="Mayank Tiku">
+                    <h3>Vice President: Mayank Tiku</h3>
+                    <p>English Tutor</p>
+                </div>
+                <div class="team-member">
+                    <img src="./assets/images/john.jpg" alt="John Wei">
+                    <h3>Animation Head: John Wei</h3>
+                    <p>With his dedication to art, John Wei excels in creating engaging and dynamic animations that bring stories to life.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scheduling Section -->
+        <section id="schedule" class="content-section">
+            <h2>Schedule a Session</h2>
+            <div class="calendar-container">
+                <iframe src="https://calendar.google.com/calendar/embed?src=fissiontutor%40gmail.com&ctz=America%2FNew_York&mode=WEEK" 
+                        style="border: 0" 
+                        width="100%" 
+                        height="600" 
+                        frameborder="0" 
+                        scrolling="no">
+                </iframe>
+            </div>
+            <!-- Signup Modal -->
+            <div id="signupModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Sign Up for Tutoring Session</h3>
+                    <form id="sessionSignupForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="session-details">
+                            <p>Session Details:</p>
+                            <p id="sessionDate"></p>
+                            <p id="sessionTime"></p>
+                            <p id="sessionSubject"></p>
+                        </div>
+                        <button type="submit" class="submit-btn">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section id="social" class="content-section">
+            <h2>Social Media</h2>
+            <div class="section-content">
+                <!-- Content will go here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: fissiontutoring@gmail.com</p>
+                <p>Phone: 973-251-7107</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <!-- Add social media icons here -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="home.js"></script>
+</body>
+</html>
