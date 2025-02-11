@@ -1,4 +1,21 @@
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
+
 document.addEventListener('DOMContentLoaded', () => {
+    const auth = getAuth();
+    const signOutBtn = document.getElementById('sign-out-btn');
+
+    if (signOutBtn) {
+        signOutBtn.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                // Redirect to login page after sign out
+                window.location.href = 'login.html';
+            } catch (error) {
+                console.error('Error signing out:', error);
+            }
+        });
+    }
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -36,5 +53,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+    });
+
+    // Login Modal Functionality
+    const loginButton = document.getElementById('login-button');
+    const authModal = document.getElementById('auth-modal');
+    const closeAuth = document.querySelector('.close-auth');
+
+    loginButton.addEventListener('click', () => {
+        authModal.classList.add('show');
+    });
+
+    closeAuth.addEventListener('click', () => {
+        authModal.classList.remove('show');
+    });
+
+    // Close modal when clicking outside
+    authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) {
+            authModal.classList.remove('show');
+        }
+    });
+
+    // Update login button based on auth state
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            loginButton.textContent = 'Logout';
+            loginButton.addEventListener('click', () => {
+                auth.signOut();
+            });
+        } else {
+            loginButton.textContent = 'Login';
+            loginButton.addEventListener('click', () => {
+                authModal.classList.add('show');
+            });
+        }
     });
 }); 

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="scheduling.js" type="module"></script>
     <script src="auth.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -23,9 +24,75 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#schedule">Scheduling</a></li>
                 <li><a href="#social">Social Media</a></li>
+                <li><button id="sign-out-btn" class="nav-button">Sign Out</button></li>
             </ul>
         </div>
     </nav>
+
+    <!-- Login/Signup Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="auth-wrapper">
+            <!-- Login Form -->
+            <div class="form-container" id="login-container">
+                <span class="close-auth">&times;</span>
+                <h2>Welcome Back</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group password-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <button type="button" class="toggle-pw" id="toggle-login-pw">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <button type="submit" class="main-btn">Login</button>
+                    <p class="error-message" id="login-error"></p>
+                </form>
+                
+                <div class="social-logins">
+                    <p>Or continue with</p>
+                    <div class="social-buttons">
+                        <button id="google-login" class="social-btn google-btn">
+                            <img src="./assets/images/google.svg" alt="Google">
+                            Continue with Google
+                        </button>
+                        <button id="github-login" class="social-btn">
+                            <img src="./assets/images/github.svg" alt="GitHub">
+                            Continue with GitHub
+                        </button>
+                    </div>
+                </div>
+                
+                <p class="switch-form">
+                    Don't have an account? <a href="#" id="show-signup">Sign up</a>
+                </p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="form-container hidden" id="signup-container">
+                <span class="close-auth">&times;</span>
+                <h2>Create Account</h2>
+                <form id="signup-form">
+                    <div class="input-group">
+                        <input type="email" id="signup-email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group password-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                        <button type="button" class="toggle-pw" id="toggle-signup-pw">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <button type="submit" class="main-btn">Sign Up</button>
+                    <p class="error-message" id="signup-error"></p>
+                </form>
+                
+                <p class="switch-form">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -151,5 +218,8 @@
         </div>
     </footer>
     <script src="home.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="auth-check.js"></script>
+    <script type="module" src="nav.js"></script>
 </body>
 </html>
