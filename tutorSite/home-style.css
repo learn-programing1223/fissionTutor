@@ -101,7 +101,7 @@ body {
 .hero-content {
     text-align: center;
     padding: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .hero-content h1 {
@@ -163,6 +163,29 @@ body {
 }
 
 .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: #f8fafc;
+}
+
+.social-cta-button {
+    display: inline-block;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     background: #f8fafc;

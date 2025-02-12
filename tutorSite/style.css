@@ -17,13 +17,13 @@
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', system-ui, sans-serif;
-    background: var(--background-gradient);
-    padding: 1rem;
+    /* Remove these styles that were causing issues */
+    min-height: initial;
+    display: initial;
+    align-items: initial;
+    justify-content: initial;
+    background: initial;
+    padding: initial;
 }
 
 .auth-wrapper {
@@ -389,6 +389,7 @@ h2 {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.875rem;
+    margin-left: 1rem;
 }
 
 .nav-button:hover {
